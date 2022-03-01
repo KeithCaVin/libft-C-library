@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 20:11:19 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/02/23 17:01:30 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:31:57 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		len;
 	char	*trimmedstr;
 
+	if (!s1)
+		return (0);
 	start = getfirst(s1, set);
 	len = getlast(s1, set);
 	if (len <= start)

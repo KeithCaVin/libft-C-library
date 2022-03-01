@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:38:14 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/02/27 14:16:23 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:41:07 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*temp;
 	t_list	*result;
 
-	result = NULL;
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
+	result = NULL;
 	while (lst)
 	{
 		temp = ft_lstnew(f(lst->content));
@@ -31,6 +31,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&result, temp);
 		lst = lst->next;
 	}
-	temp = NULL;
 	return (result);
 }

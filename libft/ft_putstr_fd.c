@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:19:06 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/02/10 18:20:20 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:36:32 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 }

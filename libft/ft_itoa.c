@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:21:18 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/02/23 17:53:09 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:09:33 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ char	*ft_itoa(int n)
 	num = get_num_length(n);
 	temp = n;
 	str = (char *)malloc(sizeof(char) * (num + 1));
-	str[num--] = '\0';
 	if (!str)
 		return (NULL);
+	str[num--] = '\0';
 	if (n == 0)
 	{
 		str[0] = '0';

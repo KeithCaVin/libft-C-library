@@ -6,7 +6,7 @@
 #    By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:55:23 by kvinarao          #+#    #+#              #
-#    Updated: 2022/02/28 14:47:41 by kvinarao         ###   ########.fr        #
+#    Updated: 2022/03/01 18:43:30 by kvinarao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS		= ft_atoi.c \
 				ft_strlcpy.c \
 				ft_strlen.c \
 				ft_strmapi.c \
+				ft_strncmp.c \
 				ft_strnstr.c \
 				ft_strrchr.c \
 				ft_strtrim.c \

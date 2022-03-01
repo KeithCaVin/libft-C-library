@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:07:54 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/02/01 14:08:17 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:22:38 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	count = 0;
 	newdest = (char *)dest;
 	newsrc = (const char *)src;
-	if (newsrc < newdest)
+	if (!src && !dest)
+		return (NULL);
+	while (n > 0 && newsrc < newdest)
 	{
-		count = n;
-		while (count--)
-			newdest[count] = newsrc [count];
+		newdest[n - 1] = newsrc[n - 1];
+		n--;
 	}
-	else
+	if (src >= dest)
 	{
-		count = 0;
 		while (count < n)
 		{
-			newdest[count] = newsrc [count];
+			newdest[count] = newsrc[count];
 			count++;
 		}
 	}
-	dest = newdest;
 	return (dest);
 }
