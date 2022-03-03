@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:21:46 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/03/01 15:26:24 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:39:17 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strchr(const char *str, int ch)
 	}
 	while (*str != '\0')
 	{
-		if (*str == ch)
+		if ((unsigned char)*str == (unsigned char)ch)
 		{
 			newstr = str;
 			return ((char *)newstr);

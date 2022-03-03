@@ -6,7 +6,7 @@
 /*   By: kvinarao <kvinarao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:18:26 by kvinarao          #+#    #+#             */
-/*   Updated: 2022/03/01 18:35:05 by kvinarao         ###   ########.fr       */
+/*   Updated: 2022/03/03 11:34:57 by kvinarao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,40 @@
 
 int	count_word(char const *str, char c)
 {
-	int	x;
-	int	res;
+	int	i;
+	int	trigger;
 
-	x = 0;
-	res = 0;
-	while (str[x] != '\0')
+	i = 0;
+	trigger = 0;
+	while (*str)
 	{
-		if (str[x] == c)
-			x++;
-		while (str[x] != c && str[x] != '\0')
+		if (*str != c && trigger == 0)
 		{
-			res++;
-			x++;
+			trigger = 1;
+			i++;
 		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	return (res);
+	return (i);
+}
+
+char	*write_split(char const *s, int start, int len)
+{
+	char	*str;
+	int		count;
+
+	count = 0;
+	str = malloc(sizeof(char) * (len - start + 1));
+	while (start < len)
+	{
+		str[count] = s[start];
+		count++;
+		start++;
+	}
+	str[count] = '\0';
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
@@ -44,7 +62,7 @@ char	**ft_split(char const *s, char c)
 	start = -1;
 	if (!s)
 		return (0);
-	result = malloc(sizeof(char *) * (count_word(s, c) + 1));
+	result = malloc((count_word(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	while (++x <= ft_strlen(s))
@@ -53,7 +71,7 @@ char	**ft_split(char const *s, char c)
 			start = x;
 		else if ((s[x] == c || x == ft_strlen(s)) && start >= 0)
 		{
-			result[y++] = ft_substr(s, start, x - start);
+			result[y++] = write_split(s, start, x);
 			start = -1;
 		}
 	}
